@@ -1,0 +1,2 @@
+# Forzar https y www
+/*  https://www.jpfinanzas.com/:splat  301!
