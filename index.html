@@ -25,14 +25,16 @@
 
     .btn{
       display:inline-block;
-      padding:16px 26px;          /* más grande */
+      padding:16px 26px;
       border-radius:12px;
       font-weight:600;
       letter-spacing:.2px;
       transition:.2s ease;
       white-space:nowrap;
-      font-size:17px;             /* subimos tamaño de letra */
+      font-size:18px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
 
     .btn-primary{background:var(--blue);color:#fff !important;border:1.5px solid var(--blue)}
     .btn-primary:visited{color:#fff !important}
@@ -110,12 +112,13 @@
            Agenda tu Revisión Rápida ($490)
           </a>
 
-          <button type="button"
-                  class="btn btn-outline"
-                  onclick="openLeadModal()"
-                  style="cursor:pointer;font-size:17px;">
+          <a href="javascript:void(0)"
+             class="btn btn-outline"
+             onclick="openLeadModal()"
+             style="cursor:pointer;">
             Quiero hablar con JP antes
-          </button>
+          </a>
+
 
           <a class="btn btn-gold" href="#completa">
             Ver Plan Estratégico
