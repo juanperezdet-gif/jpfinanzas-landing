@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>¡Reserva confirmada! | JP Finanzas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#03234F;--gold:#AA7E3E;--line:#E6EEF7}
+    body{margin:0;font-family:Montserrat,system-ui,Arial;color:#111;background:#fff}
+    .wrap{max-width:900px;margin:0 auto;padding:40px 20px}
+    .card{border:1px solid var(--line);border-radius:16px;padding:28px}
+    h1{font-size:30px;margin:0 0 10px;color:var(--blue)}
+    .muted{color:#6B7280}
+    .row{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-block;padding:14px 18px;border-radius:12px;font-weight:700;text-decoration:none}
+    .btn-primary{background:var(--blue);color:#fff}
+    .btn-outline{border:2px solid var(--blue);color:var(--blue)}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid #E7E3DA;background:#FBF7F1;color:#5b4630;border-radius:999px;font-size:12px;margin-left:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img src="logo_jp.png" alt="JP Finanzas" style="height:70px">
+    <div class="card">
+      <h1>¡Listo, <span id="name">cliente</span>! Tu cita quedó reservada.</h1>
+      <p class="muted">Te enviamos la confirmación al correo <strong id="email"></strong>. Aquí tienes los detalles:</p>
+      <p><strong>Evento:</strong> <span id="event"></span> <span class="badge" id="amount"></span></p>
+      <p id="time-row"><strong>Fecha y hora:</strong> <span id="time"></span></p>
+      <div class="row">
+        <a class="btn btn-primary" id="whats" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+        <a class="btn btn-outline" href="/" rel="noopener">Volver a jpfinanzas.com</a>
+      </div>
+    </div>
+
+    <!-- Bloque nuevo: descarga de PDF -->
+    <div class="card" style="margin-top:18px">
+      <h2 style="font-size:20px;margin-top:0;color:var(--blue)">Guía previa: Factores que influyen en tu pensión</h2>
+      <p class="muted">
+        Descarga esta guía en PDF para entender los factores técnicos que revisaremos en tu diagnóstico
+        (semanas cotizadas, salario base, edad de retiro, Modalidad 40, etc.).
+      </p>
+      <a class="btn btn-outline" href="/FactoresPension.pdf" target="_blank" rel="noopener">
+        Descargar guía en PDF
+      </a>
+    </div>
+
+    <p class="muted" style="margin-top:14px">
+      Nota: si necesitas reprogramar, usa el enlace del correo de confirmación.
+    </p>
+  </div>
+
+  <script>
+    // Toma parámetros que Calendly/Cal.com manden al redirigir
+    const p = new URLSearchParams(location.search);
+    const get = k => p.get(k) || "";
+
+    // invitee_name, invitee_email, event_start_time, event_end_time, event_type_name, utm_source, utm_medium, utm_campaign
+    document.getElementById("name").textContent  = get("invitee_name") || "¡gracias!";
+    document.getElementById("email").textContent = get("invitee_email") || "—";
+    document.getElementById("event").textContent = get("event_type_name") || "Asesoría";
+
+    // Precio aprox en MXN según el evento
+    const evt = (get("event_type_name") || "").toLowerCase();
+    const price = evt.includes("revisión rápida") || evt.includes("revision rapida")
+      ? "USD 29 (~MXN 490)"
+      : evt.includes("plan estratégico") || evt.includes("plan estrategico")
+      ? "USD 175 (~MXN 2,990)"
+      : "";
+    document.getElementById("amount").textContent = price;
+
+    // Formatea fecha/hora a tu zona
+    const startISO = get("event_start_time");
+    const timeRow = document.getElementById("time-row");
+
+    if (startISO) {
+      const dt = new Date(startISO);
+      const fmt = new Intl.DateTimeFormat('es-MX',{
+        dateStyle:'full', timeStyle:'short'
+      });
+      document.getElementById("time").textContent = fmt.format(dt);
+    } else {
+      if (timeRow) timeRow.style.display = "none";
+    }
+
+
+    // CTA WhatsApp con resumen + UTM
+    const utm = ["utm_source","utm_medium","utm_campaign"]
+      .map(k=>`${k}=${encodeURIComponent(get(k)||"")}`).join("&");
+    const msg = encodeURIComponent(
+      `Hola JP, confirmo mi cita.\n`+
+      `Nombre: ${get("invitee_name")||""}\n`+
+      `Email: ${get("invitee_email")||""}\n`+
+      `Evento: ${get("event_type_name")||""}\n`+
+      `Inicio: ${get("event_start_time")||""}\n`+
+      `(${utm})`
+    );
+    document.getElementById("whats").href = `https://wa.me/525554747547?text=${msg}`;
+  </script>
+</body>
+</html>
