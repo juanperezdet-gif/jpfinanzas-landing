@@ -23,7 +23,17 @@
     .nav img{height:72px;width:auto}
     .nav__links a{margin-left:18px;color:var(--text);font-weight:500}
 
-    .btn{display:inline-block;padding:14px 20px;border-radius:12px;font-weight:600;letter-spacing:.2px;transition:.2s ease;white-space:nowrap}
+    .btn{
+      display:inline-block;
+      padding:16px 26px;          /* más grande */
+      border-radius:12px;
+      font-weight:600;
+      letter-spacing:.2px;
+      transition:.2s ease;
+      white-space:nowrap;
+      font-size:17px;             /* subimos tamaño de letra */
+    }
+
     .btn-primary{background:var(--blue);color:#fff !important;border:1.5px solid var(--blue)}
     .btn-primary:visited{color:#fff !important}
     .btn-primary:hover{filter:brightness(1.06)}
@@ -163,7 +173,7 @@
           </ul>
           <div style="display:grid;gap:10px;margin-top:12px">
             <a id="diagnostico" class="btn btn-primary" href="https://cal.com/juan-pablo-perez-de-tejada-o9qmhp/revision-rapida-de-pension" target="_blank" rel="noopener">Agenda tu Revisión Rápida ($490)</a>
-            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/525554747547?text=Hola%20JP,%20quiero%20agendar%20mi%20Revisi%C3%B3n%20R%C3%A1pida%20de%20Pensi%C3%B3n">Escríbeme por WhatsApp</a>
+            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida.">Escríbeme por WhatsApp</a>
           </div>
         </div>
         <div class="card" id="completa">
@@ -300,7 +310,7 @@
     <footer>
     <div class="container" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap">
       <div>© 2025 JP Asesoría y Finanzas · Sitio informativo · Estimaciones sujetas a historial IMSS.</div>
-      <div><a href="https://wa.me/525554747547" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div><a href="https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida." class="btn btn-outline" target="_blank" rel="noopener">WhatsApp</a></div>
     </div>
   </footer>
 
@@ -376,7 +386,7 @@
         "• Me interesa sobre todo: " + detalle + "\n" +
         "• Mi WhatsApp: " + q6;
 
-      const url = "https://wa.me/525554747547?text=" + encodeURIComponent(texto);
+      const url = "https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida." + encodeURIComponent(texto);
       window.open(url, "_blank");
       closeLeadModal();
     }
