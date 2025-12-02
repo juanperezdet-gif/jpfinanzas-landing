@@ -34,7 +34,6 @@
       font-size:18px;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-
     .btn-primary{background:var(--blue);color:#fff !important;border:1.5px solid var(--blue)}
     .btn-primary:visited{color:#fff !important}
     .btn-primary:hover{filter:brightness(1.06)}
@@ -94,9 +93,19 @@
       height: 100%;
       object-fit: cover;   /* LLENA el recuadro */
     }
-    /* Botón play centrado */
+    /* Card de media: centra el contenido dentro del grid */
+    .card--media{
+      display:flex;
+      align-items:center;     /* centra vertical */
+      justify-content:center; /* centra horizontal */
+      padding:0;
+      overflow:hidden;
+      border-radius:16px;
+    }
+    /* Botón play perfectamente centrado */
     .video-play{
-      position:absolute; inset:auto auto 50% 50%;
+      position:absolute; 
+      top:50%; left:50%;
       transform: translate(-50%,-50%);
       width:72px;height:72px;border-radius:50%;
       border:none; cursor:pointer;
@@ -210,7 +219,7 @@
       <p class="sub">Por qué esta asesoría cambia el resultado de tu pensión.</p>
 
       <div class="grid-2" style="align-items:stretch;gap:24px;">
-        <div class="card" style="padding:0;overflow:hidden;border-radius:16px;">
+        <div class="card card--media">
           <div class="video-wrap16x9">
             <video class="lp-video"
                    aria-label="Video testimonio de cliente"
@@ -471,7 +480,7 @@
       closeLeadModal();
     }
 
-    // Click-to-play (sin autoplay)
+    // Click-to-play (sin autoplay) con audio habilitado al tocar
     (function(){
       const wrap = document.querySelector('.video-wrap16x9');
       if(!wrap) return;
@@ -479,8 +488,9 @@
       const btn = wrap.querySelector('.video-play');
 
       function playVideo(){
+        v.muted = false;                // habilita audio tras interacción del usuario
         v.play().then(()=>{ wrap.classList.add('playing'); })
-                .catch(()=>{ /* ignorar si falla sin interacción */ });
+                .catch(()=>{ /* ignorar errores de reproducción */ });
       }
       btn.addEventListener('click', playVideo);
       v.addEventListener('click', ()=>{
