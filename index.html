@@ -35,7 +35,6 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-
     .btn-primary{background:var(--blue);color:#fff !important;border:1.5px solid var(--blue)}
     .btn-primary:visited{color:#fff !important}
     .btn-primary:hover{filter:brightness(1.06)}
@@ -69,6 +68,52 @@
     .price{font-weight:700}
     .notice{background:#FFF7ED;border:1px solid #F5D7AF;color:#7C4E1E;padding:12px 14px;border-radius:12px;font-size:14px}
     footer{padding:36px 0;border-top:1px solid var(--line);background:#fff;color:#6B7280;font-size:14px}
+
+    /* === Video: estilos === */
+    .lp-video{
+      width:100%;
+      max-width:100%;
+      display:block;
+      border:0;
+    }
+    /* Contenedor con relación 16:9 que LLENA el card */
+    .video-wrap16x9{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+    }
+    /* Video llena el recuadro (puede recortar un poco) */
+    .video-wrap16x9 .lp-video{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   /* LLENA el recuadro */
+    }
+    /* Botón play centrado */
+    .video-play{
+      position:absolute; inset:auto auto 50% 50%;
+      transform: translate(-50%,-50%);
+      width:72px;height:72px;border-radius:50%;
+      border:none; cursor:pointer;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(11,43,80,.85) 0, rgba(11,43,80,.85) 60%, rgba(11,43,80,0) 61%);
+      box-shadow:0 10px 24px rgba(3,35,79,.25);
+    }
+    .video-play::before{
+      content:"";
+      position:absolute; inset:0;
+      margin:auto; width:0; height:0;
+      border-left:20px solid #fff;   /* triángulo play */
+      border-top:12px solid transparent;
+      border-bottom:12px solid transparent;
+      transform: translate(5px, 0);
+    }
+    .video-wrap16x9.playing .video-play{ display:none; } /* ocultar al reproducir */
 
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
@@ -119,12 +164,10 @@
             Quiero hablar con JP antes
           </a>
 
-
           <a class="btn btn-gold" href="#completa">
             Ver Plan Estratégico
           </a>
        </div>
-
 
         <div style="margin-top:10px">
           <span class="pill">10 años asesorando retiro y seguros</span>
@@ -156,6 +199,45 @@
         <div class="card"><h3 style="color:var(--blue)">Confirma tu Ley</h3><p>Validamos si eres <strong>Ley 73</strong> y tu estatus actual.</p></div>
         <div class="card"><h3 style="color:var(--blue)">Revisa tus números</h3><p><strong>Semanas</strong>, <strong>vigencia</strong> y <strong>salario promedio</strong> (250 semanas).</p></div>
         <div class="card"><h3 style="color:var(--blue)">Evalúa Modalidad 40</h3><p>Definimos <strong>salario base</strong>, <strong>tiempo</strong> y beneficio real.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRUEBA SOCIAL (video) -->
+  <section class="alt" id="prueba-social">
+    <div class="container">
+      <h2>Historias reales<span class="bar"></span></h2>
+      <p class="sub">Por qué esta asesoría cambia el resultado de tu pensión.</p>
+
+      <div class="grid-2" style="align-items:stretch;gap:24px;">
+        <div class="card" style="padding:0;overflow:hidden;border-radius:16px;">
+          <div class="video-wrap16x9">
+            <video class="lp-video"
+                   aria-label="Video testimonio de cliente"
+                   poster="jp-testimonio-720-v1-poster.jpg"
+                   muted playsinline loop preload="metadata">
+              <!-- Si tienes versión WebM, déjala primero -->
+              <source src="jp-testimonio-720-v1.webm" type="video/webm">
+              <source src="jp-testimonio-720-v1.mp4"  type="video/mp4">
+              Tu navegador no soporta video HTML5.
+            </video>
+            <button class="video-play" aria-label="Reproducir testimonio"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color:#0B2B50;margin-top:4px;">“Entré con dudas, salí con plan.”</h3>
+          <p class="muted">Ley 73, semanas dispersas y conservación vencida. Ordenamos datos, reactivamos camino y definimos estrategia. Decisiones con números, sin humo.</p>
+          <ul class="muted" style="margin:12px 0 16px;">
+            <li>✔ Orden de NSS/Afore y semanas</li>
+            <li>✔ Reactivación y estrategia con promedio</li>
+            <li>✔ Acompañamiento en ejecución</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="https://wa.me/5210000000000?text=Hola%20JP,%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+            <a class="btn btn-outline" href="#faq">Preguntas frecuentes</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -310,7 +392,7 @@
     </div>
   </section>
 
-    <footer>
+  <footer>
     <div class="container" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap">
       <div>© 2025 JP Asesoría y Finanzas · Sitio informativo · Estimaciones sujetas a historial IMSS.</div>
       <div><a href="https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida." class="btn btn-outline" target="_blank" rel="noopener">WhatsApp</a></div>
@@ -318,7 +400,7 @@
   </footer>
 
   <script>
-    // Formulario "¿Eres candidato?" (sección de abajo)
+    // Formulario "¿Eres candidato?"
     function goAgenda(e){
       e.preventDefault();
       const q1 = document.getElementById('q1').value || "-";
@@ -339,18 +421,14 @@
     }
 
     // ==== MODAL LEAD WHATS ====
-
     function openLeadModal(){
       const m = document.getElementById('leadModal');
       if (m) m.style.display = 'flex';
     }
-
     function closeLeadModal(){
       const m = document.getElementById('leadModal');
       if (m) m.style.display = 'none';
     }
-
-    // Mostrar/ocultar campo "Otro" según selección
     document.addEventListener('DOMContentLoaded', function(){
       const lead_q5 = document.getElementById('lead_q5');
       const lead_other_wrap = document.getElementById('lead_other_wrap');
@@ -364,7 +442,6 @@
         });
       }
     });
-
     function sendLeadWhats(e){
       e.preventDefault();
       const q1 = document.getElementById('lead_q1').value || "-";
@@ -393,6 +470,35 @@
       window.open(url, "_blank");
       closeLeadModal();
     }
+
+    // Click-to-play (sin autoplay)
+    (function(){
+      const wrap = document.querySelector('.video-wrap16x9');
+      if(!wrap) return;
+      const v = wrap.querySelector('video');
+      const btn = wrap.querySelector('.video-play');
+
+      function playVideo(){
+        v.play().then(()=>{ wrap.classList.add('playing'); })
+                .catch(()=>{ /* ignorar si falla sin interacción */ });
+      }
+      btn.addEventListener('click', playVideo);
+      v.addEventListener('click', ()=>{
+        if (v.paused) playVideo(); else v.pause();
+      });
+    })();
+
+    // Pausar cuando no esté visible
+    (function(){
+      const v = document.querySelector('.video-wrap16x9 video');
+      if(!v) return;
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(!e.isIntersecting) v.pause();
+        });
+      }, {threshold: 0.25});
+      io.observe(v);
+    })();
   </script>
 
   <!-- MODAL LEAD WHATS -->
@@ -400,9 +506,7 @@
     <div style="max-width:480px;width:100%;background:#ffffff;border-radius:18px;padding:20px 20px 18px;border:1px solid #E5E7EB;box-shadow:0 18px 40px rgba(3,35,79,.28);position:relative;">
       <button type="button" onclick="closeLeadModal()" style="position:absolute;top:10px;right:12px;border:none;background:transparent;font-size:20px;cursor:pointer;color:#6B7280;">×</button>
       <h2 style="margin:4px 0 4px;font-size:20px;color:#03234F;">Antes de escribirte por WhatsApp…</h2>
-      <p style="margin:0 0 12px;font-size:14px;color:#4B5563;">
-        Responde unas preguntas rápidas y te escribo con una orientación clara sobre tu caso.
-      </p>
+      <p style="margin:0 0 12px;font-size:14px;color:#4B5563;">Responde unas preguntas rápidas y te escribo con una orientación clara sobre tu caso.</p>
 
       <form id="leadForm" onsubmit="sendLeadWhats(event)" style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#111827;">
 
