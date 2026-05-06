@@ -1,602 +1,1050 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pensión IMSS Ley 73 | JP Asesoría y Finanzas</title>
-  <meta name="description" content="Revisión Rápida de Pensión ($490) y Plan Estratégico de Pensión IMSS ($3,000). Analizamos Ley 73, semanas, Modalidad 40 y diseñamos tu mejor estrategia con números reales.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --blue:#03234F; --gold:#AA7E3E; --text:#111827; --muted:#6B7280;
-      --bg:#FFFFFF; --section:#F7FAFF; --line:#E6EEF7;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1100px,92%);margin:0 auto}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Pensional — Gabriela Muñoz Abarca | JP Finanzas</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --navy: #0D1B2A;
+  --navy-mid: #1B2E44;
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --cream: #F5F0E8;
+  --cream-mid: #EDE8DC;
+  --text: #1A1A1A;
+  --text-mid: #4A4A4A;
+  --text-soft: #7A7A7A;
+  --green: #2D6A4F;
+  --green-bg: #EAF3EE;
+  --amber: #92400E;
+  --amber-bg: #FEF3C7;
+  --red: #991B1B;
+  --red-bg: #FEE2E2;
+  --blue: #1E3A5F;
+  --blue-bg: #EFF6FF;
+  --border: rgba(13,27,42,0.12);
+  --shadow: 0 2px 16px rgba(13,27,42,0.08);
+}
 
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:50;box-shadow:0 6px 16px rgba(3,35,79,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .nav__left{display:flex;align-items:center;gap:14px}
-    .nav img{height:72px;width:auto}
-    .nav__links a{margin-left:18px;color:var(--text);font-weight:500}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .btn{
-      display:inline-block;
-      padding:16px 26px;
-      border-radius:12px;
-      font-weight:600;
-      letter-spacing:.2px;
-      transition:.2s ease;
-      white-space:nowrap;
-      font-size:18px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .btn-primary{background:var(--blue);color:#fff !important;border:1.5px solid var(--blue)}
-    .btn-primary:visited{color:#fff !important}
-    .btn-primary:hover{filter:brightness(1.06)}
-    .btn-outline{border:1.5px solid var(--blue);color:var(--blue);background:#fff}
-    .btn-outline:hover{background:#EFF4FB}
-    .btn-gold{background:var(--gold);color:#fff;border:1.5px solid var(--gold)}
-    .btn-gold:hover{filter:brightness(1.05)}
-    .pill{display:inline-block;background:#FBF7F1;border:1px solid rgba(170,126,62,.35);color:#4B5563;padding:8px 12px;border-radius:999px;margin-right:8px;margin-bottom:8px;font-size:13px}
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
 
-    .hero{padding:56px 0;background:linear-gradient(120deg,#ffffff 52%, #F2F6FD 52%);border-bottom:1px solid var(--line)}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
-    .hero h1{font-size:42px;line-height:1.12;margin:0 0 14px;font-weight:700}
-    .hero h1 span{color:var(--blue)}
-    .hero p.lead{font-size:18px;color:#374151;margin:0 0 22px;max-width:54ch}
-    .accent{display:inline-block;height:4px;width:74px;background:var(--gold);border-radius:3px;margin-bottom:12px}
+/* Header */
+.header {
+  background: var(--navy);
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 50%;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 200px; height: 200px;
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 50%;
+}
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.jp-logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.75rem;
+}
+.jp-badge {
+  width: 48px; height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2px;
+}
+.jp-name {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.client-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: .4rem;
+}
+.client-meta {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: .02em;
+  margin-bottom: 1.5rem;
+}
+.badges {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .3rem .8rem;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+.badge-gold {
+  background: rgba(201,168,76,0.2);
+  color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.3);
+}
+.badge-white {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.15);
+}
 
-    .hero-photo{width:100%;height:460px;border-radius:20px;object-fit:cover;object-position:center;box-shadow:0 20px 40px rgba(3,35,79,.14);border:1px solid var(--line);background:#fff}
+/* Main layout */
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-    section{padding:56px 0}
-    section.alt{background:var(--section)}
-    h2{font-size:28px;margin:0 0 8px}
-    h2 .bar{display:block;height:3px;width:64px;background:var(--gold);border-radius:3px;margin-top:8px}
-    .sub{color:var(--muted);margin:0 0 26px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .check{list-style:none;padding:0;margin:0}
-    .check li{margin:10px 0;padding-left:26px;position:relative}
-    .check li:before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--blue)}
-    .muted{color:var(--muted)}
-    .price{font-weight:700}
-    .notice{background:#FFF7ED;border:1px solid #F5D7AF;color:#7C4E1E;padding:12px 14px;border-radius:12px;font-size:14px}
-    footer{padding:36px 0;border-top:1px solid var(--line);background:#fff;color:#6B7280;font-size:14px}
+/* Disclaimer */
+.disclaimer {
+  background: var(--cream-mid);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .9rem 1.2rem;
+  font-size: 12px;
+  color: var(--text-soft);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
 
-    /* === Video: estilos === */
-    .lp-video{
-      width:100%;
-      max-width:100%;
-      display:block;
-      border:0;
-    }
-    /* Contenedor con relación 16:9 que LLENA el card */
-    .video-wrap16x9{
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-    }
-    /* Video llena el recuadro (puede recortar un poco) */
-    .video-wrap16x9 .lp-video{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;   /* LLENA el recuadro */
-    }
-    /* Card de media: centra el contenido dentro del grid */
-    .card--media{
-      display:flex;
-      align-items:center;     /* centra vertical */
-      justify-content:center; /* centra horizontal */
-      padding:0;
-      overflow:hidden;
-      border-radius:16px;
-    }
-    /* Botón play perfectamente centrado */
-    .video-play{
-      position:absolute; 
-      top:50%; left:50%;
-      transform: translate(-50%,-50%);
-      width:72px;height:72px;border-radius:50%;
-      border:none; cursor:pointer;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(11,43,80,.85) 0, rgba(11,43,80,.85) 60%, rgba(11,43,80,0) 61%);
-      box-shadow:0 10px 24px rgba(3,35,79,.25);
-    }
-    .video-play::before{
-      content:"";
-      position:absolute; inset:0;
-      margin:auto; width:0; height:0;
-      border-left:20px solid #fff;   /* triángulo play */
-      border-top:12px solid transparent;
-      border-bottom:12px solid transparent;
-      transform: translate(5px, 0);
-    }
-    .video-wrap16x9.playing .video-play{ display:none; } /* ocultar al reproducir */
+/* Section */
+.section { margin-bottom: 2.5rem; }
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  flex-shrink: 0;
+}
 
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero{background:#fff}
-      .hero h1{font-size:34px}
-      .grid-3,.grid-2{grid-template-columns:1fr}
-      .hero-photo{height:360px}
-      .nav__links a{display:none}
-    }
-  </style>
+/* KPI grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: .75rem;
+  margin-bottom: 1rem;
+  align-items: stretch;
+}
+.kpi {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-height: 90px;
+}
+.kpi-label { font-size: 10px; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem; flex-shrink: 0; }
+.kpi-val { font-size: 1.25rem; font-weight: 500; color: var(--navy); line-height: 1.2; flex: 1; display: flex; align-items: flex-start; }
+.kpi-sub { font-size: 10.5px; color: var(--text-soft); margin-top: .3rem; flex-shrink: 0; line-height: 1.4; }
+.kpi-gold .kpi-val { color: var(--gold); }
+.kpi-green .kpi-val { color: var(--green); }
+.kpi-navy .kpi-val { color: var(--navy); }
+@media (max-width: 700px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 420px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Alert boxes */
+.alert {
+  border-radius: 10px;
+  padding: .9rem 1.2rem;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+}
+.alert-amber { background: var(--amber-bg); color: var(--amber); border-color: #FCD34D; }
+.alert-green { background: var(--green-bg); color: var(--green); border-color: #86EFAC; }
+.alert-blue  { background: var(--blue-bg);  color: var(--blue);  border-color: #BFDBFE; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+thead tr { background: var(--navy); }
+th {
+  padding: 10px 14px;
+  text-align: left;
+  color: rgba(255,255,255,0.75);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--cream-mid);
+  color: var(--text);
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--cream); }
+tr.row-highlight td { background: #EFF6FF; font-weight: 500; }
+tr.row-best td { background: var(--green-bg); font-weight: 500; }
+
+/* Semaforo */
+.sem { display: inline-flex; align-items: center; gap: .3rem; padding: .2rem .6rem; border-radius: 100px; font-size: 11px; font-weight: 500; }
+.sem-green { background: var(--green-bg); color: var(--green); }
+.sem-amber { background: var(--amber-bg); color: var(--amber); }
+.sem-red   { background: var(--red-bg);   color: var(--red); }
+
+/* Interactive section */
+.controls {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.control-row:last-child { margin-bottom: 0; }
+.control-label {
+  font-size: 13px;
+  color: var(--text-mid);
+  min-width: 180px;
+  font-weight: 500;
+}
+.control-row input[type=range] {
+  flex: 1;
+  accent-color: var(--navy);
+  height: 4px;
+}
+.control-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  min-width: 120px;
+  text-align: right;
+}
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: .75rem;
+  margin-top: 1rem;
+}
+.result-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .9rem 1rem;
+}
+.result-label { font-size: 11px; color: var(--text-soft); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .25rem; }
+.result-val { font-size: 1.3rem; font-weight: 500; color: var(--navy); }
+.result-sub { font-size: 11px; color: var(--text-soft); margin-top: .15rem; }
+
+/* Tabs */
+.tabs-row {
+  display: flex;
+  gap: .4rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: .45rem 1rem;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-mid);
+  transition: all .15s;
+}
+.tab-btn:hover { border-color: var(--navy); color: var(--navy); }
+.tab-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Conclusion box */
+.conclusion {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.conclusion::before {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 50%;
+}
+.conclusion-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+.conclusion p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.7;
+  margin-bottom: .75rem;
+}
+.conclusion p:last-child { margin-bottom: 0; }
+.conclusion strong { color: #fff; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 12px;
+  color: var(--text-soft);
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+.footer a { color: var(--navy); text-decoration: none; }
+
+@media (max-width: 600px) {
+  .main { padding: 1.25rem; }
+  .client-name { font-size: 1.6rem; }
+  .control-row { flex-wrap: wrap; }
+  .control-label { min-width: 100%; }
+  .control-val { min-width: auto; }
+}
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="nav__left">
-        <img src="logo_jp.png" alt="JP Asesoría y Finanzas">
-      </div>
-      <div class="nav__links">
-        <a href="#para-quien">¿Para quién?</a>
-        <a href="#metodo">Qué haremos</a>
-        <a href="#completa">Plan Estratégico</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-primary" href="https://cal.com/juan-pablo-perez-de-tejada-o9qmhp/revision-rapida-de-pension" target="_blank" rel="noopener">Agenda tu Revisión Rápida ($490)</a>
-      </div>
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="jp-logo">
+      <div class="jp-badge"><img src="data:image/jpeg;base64,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" alt="JP Finanzas" style="width:44px;height:44px;object-fit:contain;border-radius:6px;"></div>
+      <div class="jp-name">JP Finanzas · Asesor en Retiro y Finanzas</div>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="accent"></div>
-        <h1>Aumenta tu pensión <span>Ley 73</span> con estrategia, no con suerte.</h1>
-        <p class="lead">Con una <strong>Revisión Rápida de Pensión</strong> y un <strong>Plan Estratégico de Pensión IMSS</strong>, revisamos <strong>semanas</strong>, <strong>conservación de derechos</strong> y <strong>salario base</strong> para decidir con números reales y evitar errores costosos en Modalidad 40.</p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin:0 0 10px">
-          <a class="btn btn-primary"
-             href="https://cal.com/juan-pablo-perez-de-tejada-o9qmhp/revision-rapida-de-pension"
-             target="_blank" rel="noopener">
-           Agenda tu Revisión Rápida ($490)
-          </a>
-
-          <a href="javascript:void(0)"
-             class="btn btn-outline"
-             onclick="openLeadModal()"
-             style="cursor:pointer;">
-            Quiero hablar con JP antes
-          </a>
-
-          <a class="btn btn-gold" href="#completa">
-            Ver Plan Estratégico
-          </a>
-       </div>
-
-        <div style="margin-top:10px">
-          <span class="pill">10 años asesorando retiro y seguros</span>
-          <span class="pill">IMSS Ley 73 / Modalidad 40</span>
-          <span class="pill">Respuesta clara en 15 minutos</span>
-        </div>
-      </div>
-      <div>
-        <!-- Tu foto -->
-        <img class="hero-photo" src="juanpa.jpg" alt="Juan Pablo Pérez de Tejada" style="object-position:center 40%;">
-
-        <!-- Credenciales JP -->
-        <div style="margin-top:16px;background:#03234F;border-radius:14px;padding:14px 16px;color:#F9FAFB;font-size:13px;box-shadow:0 8px 18px rgba(3,35,79,.16)">
-          <strong>Juan Pablo Pérez de Tejada</strong><br>
-          Ingeniero de formación y asesor en seguros con más de <strong>10 años de experiencia</strong> ayudando a familias a blindar su patrimonio.  
-          Especializado en <strong>retiro IMSS (Ley 73 y 97)</strong>, pensiones y estrategias con Modalidad 40 para tomar decisiones claras en una de las etapas más importantes de la vida.
-        </div>
-      </div>
-
+    <div class="client-name">Gabriela Muñoz Abarca</div>
+    <div class="client-meta">
+      NSS 37886609223 &nbsp;·&nbsp; CURP MUAG661104MDFXBB10 &nbsp;·&nbsp; Constancia emitida 13/04/2026
     </div>
-  </section>
-
-  <!-- ¿PARA QUIÉN? -->
-  <section id="para-quien" class="alt">
-    <div class="container">
-      <h2>¿Para quién es? <span class="bar"></span></h2>
-      <p class="sub">Si empezaste a cotizar <strong>antes del 1 de julio de 1997</strong>, esta asesoría es para ti.</p>
-      <div class="grid-3">
-        <div class="card"><h3 style="color:var(--blue)">Confirma tu Ley</h3><p>Validamos si eres <strong>Ley 73</strong> y tu estatus actual.</p></div>
-        <div class="card"><h3 style="color:var(--blue)">Revisa tus números</h3><p><strong>Semanas</strong>, <strong>vigencia</strong> y <strong>salario promedio</strong> (250 semanas).</p></div>
-        <div class="card"><h3 style="color:var(--blue)">Evalúa Modalidad 40</h3><p>Definimos <strong>salario base</strong>, <strong>tiempo</strong> y beneficio real.</p></div>
-      </div>
+    <div class="badges">
+      <span class="badge badge-gold">✓ Ley 73</span>
+      <span class="badge badge-gold">✓ Conserva derechos</span>
+      <span class="badge badge-white">AFORE: Sura</span>
+      <span class="badge badge-white">Diagnóstico pensional</span>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- PRUEBA SOCIAL (video) -->
-  <section class="alt" id="prueba-social">
-    <div class="container">
-      <h2>Historias reales<span class="bar"></span></h2>
-      <p class="sub">Por qué esta asesoría cambia el resultado de tu pensión.</p>
+<div class="main">
 
-      <div class="grid-2" style="align-items:stretch;gap:24px;">
-        <div class="card card--media">
-          <div class="video-wrap16x9">
-            <video class="lp-video"
-                   aria-label="Video testimonio de cliente"
-                   poster="jp-testimonio-720-v1-poster.jpg"
-                   muted playsinline loop preload="metadata">
-              <!-- Si tienes versión WebM, déjala primero -->
-              <source src="jp-testimonio-720-v1.webm" type="video/webm">
-              <source src="jp-testimonio-720-v1.mp4"  type="video/mp4">
-              Tu navegador no soporta video HTML5.
-            </video>
-            <button class="video-play" aria-label="Reproducir testimonio"></button>
-          </div>
-        </div>
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>Aviso importante:</strong> Este diagnóstico tiene carácter exclusivamente informativo y se elabora con base en la Constancia de Semanas Cotizadas emitida por el IMSS y los datos proporcionados. Los cálculos son estimaciones de planeación; el IMSS es la única autoridad facultada para determinar el monto final de la pensión. Este documento no sustituye la asesoría directa del instituto ni constituye una recomendación de inversión. La decisión final es responsabilidad exclusiva de la titular.
+</div>
 
-        <div class="card">
-          <h3 style="color:#0B2B50;margin-top:4px;">“Entré con dudas, salí con plan.”</h3>
-          <p class="muted">Ley 73, semanas dispersas y conservación vencida. Ordenamos datos, reactivamos camino y definimos estrategia. Decisiones con números, sin humo.</p>
-          <ul class="muted" style="margin:12px 0 16px;">
-            <li>✔ Orden de NSS/Afore y semanas</li>
-            <li>✔ Reactivación y estrategia con promedio</li>
-            <li>✔ Acompañamiento en ejecución</li>
-          </ul>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a class="btn btn-primary" href="https://wa.me/5210000000000?text=Hola%20JP,%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener">Agendar por WhatsApp</a>
-            <a class="btn btn-outline" href="#faq">Preguntas frecuentes</a>
-          </div>
-        </div>
-      </div>
+<!-- 1. DATOS GENERALES -->
+<div class="section">
+  <div class="section-title"><span class="section-num">1</span> Datos generales</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Nombre</div><div class="kpi-val" style="font-size:.95rem;align-items:flex-start;display:block">Gabriela Muñoz Abarca</div></div>
+    <div class="kpi"><div class="kpi-label">Fecha de nacimiento</div><div class="kpi-val">04/Nov/1966</div><div class="kpi-sub">Cumple 60: nov 2026</div></div>
+    <div class="kpi"><div class="kpi-label">Edad actual</div><div class="kpi-val">59 años</div><div class="kpi-sub">5 meses</div></div>
+    <div class="kpi"><div class="kpi-label">Régimen</div><div class="kpi-val" style="font-size:1.1rem;display:block;align-items:flex-start">Ley 73</div><div class="kpi-sub">Alta IMSS desde 1988</div></div>
+    <div class="kpi kpi-gold"><div class="kpi-label">Semanas cotizadas</div><div class="kpi-val">1,774</div><div class="kpi-sub">Mínimo requerido: 500</div></div>
+    <div class="kpi"><div class="kpi-label">AFORE</div><div class="kpi-val" style="font-size:1.1rem;display:block">Sura</div><div class="kpi-sub">Validada vía NSS telefónico</div></div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Último SBC diario</div><div class="kpi-val">$1,916.92</div><div class="kpi-sub">Baja: 08/04/2024</div></div>
+    <div class="kpi kpi-green"><div class="kpi-label">Conserva derechos</div><div class="kpi-val">Sí</div><div class="kpi-sub">Vence: oct 2032</div></div>
+    <div class="kpi"><div class="kpi-label">Meses sin cotizar</div><div class="kpi-val">24 meses</div><div class="kpi-sub">Desde abr 2024</div></div>
+    <div class="kpi"><div class="kpi-label">UMA 2026</div><div class="kpi-val">$117.31</div><div class="kpi-sub">Diaria · INEGI oficial</div></div>
+    <div class="kpi"><div class="kpi-label">Fecha constancia</div><div class="kpi-val" style="font-size:1.1rem;display:block">13/04/2026</div><div class="kpi-sub">Emitida por IMSS</div></div>
+    <div class="kpi kpi-gold"><div class="kpi-label">SBC promedio 250 sem</div><div class="kpi-val">$1,821.74</div><div class="kpi-sub">$55,381/mes · real ponderado</div></div>
+  </div>
+  <div class="alert alert-amber">
+    ⚠ <strong>Nota importante sobre el SBC:</strong> El promedio real ponderado de las últimas 250 semanas es <strong>$1,821.74/día</strong> — no $1,916.92 (último SBC). La diferencia se debe al historial variable de salarios con picos cortos de mayo (bono). Este promedio es la base real de tu pensión.
+  </div>
+</div>
+
+<!-- 2. SITUACIÓN ACTUAL -->
+<div class="section">
+  <div class="section-title"><span class="section-num">2</span> Situación actual</div>
+  <p style="color:var(--text-mid);font-size:14px;line-height:1.8;margin-bottom:1rem">
+    Hoy se cuenta con una posición sólida para pensionarse bajo Ley 73. Con <strong>1,774 semanas cotizadas</strong> — muy por encima del mínimo de 500 — y con derechos conservados plenamente hasta octubre de 2032, existe un amplio margen de maniobra. El historial laboral inicia en 1988 con Manpower, lo que permite analizar el caso bajo el régimen anterior a la reforma de julio de 1997, generalmente más favorable que Ley 97.
+  </p>
+  <p style="color:var(--text-mid);font-size:14px;line-height:1.8;margin-bottom:1rem">
+    Los 60 años se cumplen en <strong>noviembre de 2026</strong>, fecha en la que se podría solicitar la pensión por cesantía en edad avanzada. La decisión clave es si se opta por el retiro ese mismo año o se espera uno o más años para mejorar el monto mensual — y si conviene activar una estrategia de Modalidad 40 durante ese periodo.
+  </p>
+  <div class="alert alert-blue">
+    ℹ <strong>Conservación de derechos:</strong> Con 34.1 años cotizados, el margen de conservación es de 8.5 años desde la baja (abril 2024), lo que extiende la protección hasta octubre de 2032. Es posible pensionarse en cualquier momento dentro de ese periodo sin inconveniente.
+  </div>
+</div>
+
+<!-- 3. PENSIÓN BASE SIN M40 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">3</span> Pensión base sin estrategia</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Edad de retiro</th>
+          <th>% Ley 73</th>
+          <th>Pensión bruta</th>
+          <th>ISR estimado</th>
+          <th>Pensión neta/mes</th>
+          <th>Factible</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>60 años (nov 2026)</td><td>75%</td><td>$41,536</td><td>$0</td><td><strong>$41,536</strong></td><td><span class="sem sem-green">✓ Sí</span></td></tr>
+        <tr class="row-highlight"><td>61 años (nov 2027)</td><td>80%</td><td>$44,305</td><td>$0</td><td><strong>$44,305</strong></td><td><span class="sem sem-green">✓ Sí</span></td></tr>
+        <tr><td>62 años (nov 2028)</td><td>85%</td><td>$47,074</td><td>$0</td><td><strong>$47,074</strong></td><td><span class="sem sem-green">✓ Sí</span></td></tr>
+        <tr><td>63 años (nov 2029)</td><td>90%</td><td>$49,843</td><td>$0</td><td><strong>$49,843</strong></td><td><span class="sem sem-green">✓ Sí</span></td></tr>
+        <tr><td>64 años (nov 2030)</td><td>95%</td><td>$52,612</td><td>$0</td><td><strong>$52,612</strong></td><td><span class="sem sem-green">✓ Sí</span></td></tr>
+        <tr><td>65 años (nov 2031)</td><td>100%</td><td>$55,381</td><td>$377</td><td><strong>$55,003</strong></td><td><span class="sem sem-green">✓ Sí</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:var(--text-soft);margin-top:.6rem">Cálculo con SBC promedio ponderado real de las últimas 250 semanas ($1,821.74/día). ISR exento hasta 15 UMA mensuales (~$53,493). Pensión en pesos de hoy, sin indexar.</p>
+
+  <div style="margin-top:1.75rem">
+    <div class="section-title" style="font-size:1rem;border:none;padding:0;margin-bottom:.5rem">A — Costo de oportunidad por esperarse (sin estrategia)</div>
+    <p style="font-size:13px;color:var(--text-soft);margin-bottom:.75rem">¿Cuánto cuesta esperar más años para cobrar una pensión mensual más alta, sin hacer nada adicional?</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Comparación</th>
+            <th>Años sin cobrar</th>
+            <th>Monto no cobrado</th>
+            <th>Incremento mensual</th>
+            <th>Años para recuperar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Retiro a 60 → esperar a 61</td><td>1 año</td><td>$498,432</td><td>+$2,769/mes</td><td>~15 años</td></tr>
+          <tr><td>Retiro a 60 → esperar a 62</td><td>2 años</td><td>$996,864</td><td>+$5,538/mes</td><td>~15 años</td></tr>
+          <tr><td>Retiro a 60 → esperar a 65</td><td>5 años</td><td>$2,492,160</td><td>+$13,467/mes</td><td>~15 años</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
-
-  <!-- MÉTODO -->
-  <section id="metodo">
-    <div class="container">
-      <h2>Qué haremos en tu caso <span class="bar"></span></h2>
-      <p class="sub">Metodología clara para decidir con certeza.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>1) Revisión Rápida de Pensión — <span class="price" style="color:var(--gold)">$490 / 15 min</span></h3>
-          <ul class="check">
-            <li>Confirmación de Ley 73</li>
-            <li>Revisión de semanas y vigencia</li>
-            <li>Riesgos operativos: NSS, registros, pre-97</li>
-            <li>Recomendación inmediata (semáforo)</li>
-          </ul>
-          <div style="display:grid;gap:10px;margin-top:12px">
-            <a id="diagnostico" class="btn btn-primary" href="https://cal.com/juan-pablo-perez-de-tejada-o9qmhp/revision-rapida-de-pension" target="_blank" rel="noopener">Agenda tu Revisión Rápida ($490)</a>
-            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida.">Escríbeme por WhatsApp</a>
-          </div>
-        </div>
-        <div class="card" id="completa">
-          <h3>2) Plan Estratégico de Pensión IMSS — <span class="price" style="color:var(--gold)">$3,000</span></h3>
-          <ul class="check">
-            <li><strong>Escenarios comparativos por aporte:</strong> bajo / medio / topado (<strong>25 UMA</strong>, tope legal IMSS)</li>
-            <li><strong>Plazos evaluados:</strong> 1, 2, 3, 4 y 5 años (ajuste por edad y vigencia)</li>
-            <li><strong>Resultado esperado:</strong> pensión estimada por escenario (tabla + gráfica)</li>
-            <li><strong>Punto de equilibrio:</strong> meses estimados para recuperar lo aportado</li>
-            <li><strong>Sensibilidad:</strong> impacto de subir/bajar el salario base</li>
-            <li><strong>Recomendación óptima:</strong> monto + tiempo, con justificación técnica</li>
-            <li><strong>Calendario de acciones:</strong> fechas, pasos y seguimiento sugerido</li>
-            <li><strong>Riesgos operativos:</strong> NSS, semanas pre-97, vigencia y trámites críticos</li>
-          </ul>
-          <p class="muted">Entregable: PDF profesional <strong>JP Finanzas</strong> con tu estrategia y simulaciones.</p>
-          <div style="display:grid;gap:10px;margin-top:12px">
-            <a class="btn btn-outline" href="https://cal.com/juan-pablo-perez-de-tejada-o9qmhp/plan-estrategico-de-pension-imss" target="_blank" rel="noopener">Solicitar Plan Estratégico</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>3) Acompañamiento</h3>
-          <ul class="check">
-            <li>Soporte en trámites y validaciones</li>
-            <li>Ajustes de estrategia sobre la marcha</li>
-          </ul>
-          <p class="muted">Cotiza según alcance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- URGENCIA -->
-  <section class="alt">
-    <div class="container">
-      <h2>Por qué hacerlo ahora <span class="bar"></span></h2>
-      <div class="grid-3">
-        <div class="card"><h3 style="color:var(--blue)">Conservación de derechos</h3><p>Si la pierdes, puedes quedar fuera aunque tengas semanas.</p></div>
-        <div class="card"><h3 style="color:var(--blue)">Promedio 250 semanas</h3><p>Define tu resultado: subir o bajar tarde impacta la pensión.</p></div>
-        <div class="card"><h3 style="color:var(--blue)">Registros correctos</h3><p>Evita errores de NSS, duplicados o pérdidas de semanas pre-97.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALIFICADOR -->
-  <section id="calificador">
-    <div class="container">
-      <h2>¿Eres candidato? (filtro rápido) <span class="bar"></span></h2>
-      <p class="sub">Responde y continúa al pago/agenda.</p>
-      <div class="card">
-        <div style="display:grid;gap:12px;margin-top:8px">
-          <div class="grid-2">
-            <div>
-              <label style="font-weight:600">¿Iniciaste cotización antes del 1/07/1997?</label>
-              <select id="q1" style="padding:12px;border-radius:10px;border:1px solid var(--line);width:100%">
-                <option value="">Selecciona…</option>
-                <option>Sí</option>
-                <option>No</option>
-                <option>No sé</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-weight:600">Semanas cotizadas (aprox.)</label>
-              <input id="q2" type="text" placeholder="Ej. 780" style="padding:12px;border-radius:10px;border:1px solid var(--line);width:100%"/>
-            </div>
-          </div>
-          <div class="grid-2">
-            <div>
-              <label style="font-weight:600">¿Sigues vigente en conservación de derechos?</label>
-              <select id="q3" style="padding:12px;border-radius:10px;border:1px solid var(--line);width:100%">
-                <option value="">Selecciona…</option>
-                <option>Sí</option>
-                <option>No</option>
-                <option>No sé</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-weight:600">WhatsApp (10 dígitos)</label>
-              <input id="q4" type="text" placeholder="55XXXXXXXX" style="padding:12px;border-radius:10px;border:1px solid var(--line);width:100%"/>
-            </div>
-          </div>
-          <div style="display:grid;gap:10px">
-            <a id="btnAgenda" class="btn btn-primary" href="#" onclick="goAgenda(event)">Enviar mis datos por WhatsApp</a>
-            <a id="btnWA" class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/525554747547?text=Hola%20JP,%20quiero%20revisar%20mi%20pensi%C3%B3n%20Ley%2073">Escríbeme por WhatsApp</a>
-            <div id="msg" class="muted"></div>
-          </div>
-        </div>
-      </div>
-      <p class="notice" style="margin-top:12px">Estimaciones sujetas a tu historial IMSS y normativa vigente.</p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="alt">
-    <div class="container">
-      <h2>Preguntas frecuentes <span class="bar"></span></h2>
-      <dl class="faq">
-        <dt>¿Soy Ley 73 o 97?</dt>
-        <dd>Si iniciaste cotización antes del 1/07/1997, eres Ley 73; desde esa fecha, Ley 97.</dd>
-        <dt>¿Ley 97 puede usar Modalidad 40?</dt>
-        <dd>No. Modalidad 40 es exclusiva para Ley 73.</dd>
-        <dt>Si dejé de cotizar, ¿perdí mis semanas?</dt>
-        <dd>No se borran; lo que puedes perder es la conservación de derechos. Revisamos tu vigencia.</dd>
-        <dt>¿Cuál es la pensión máxima?</dt>
-        <dd>Depende de salario promedio y semanas. Calculamos escenarios específicos para tu caso.</dd>
-      </dl>
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section>
-    <div class="container">
-      <h2>Servicios <span class="bar"></span></h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3 style="color:var(--blue)">Asesorías Ley 73 (IMSS / Modalidad 40)</h3>
-          <p>Revisión Rápida de Pensión, Plan Estratégico y acompañamiento.</p>
-        </div>
-        <div class="card">
-          <h3 style="color:var(--blue)">Protección (Vida / GMM)</h3>
-          <p>Protege ingreso, familia y patrimonio con coberturas a la medida.</p>
-        </div>
-        <div class="card">
-          <h3 style="color:var(--blue)">Ahorro (PPR / Largo Plazo / UDIS)</h3>
-          <p>Alternativas para Ley 97 y metas de capital.</p>
-        </div>
-      </div>
-      <div class="card" style="margin-top:18px">
-        <h3 style="color:var(--blue)">Planes Educacionales</h3>
-        <p>Ahorro programado en UDIS para educación: capital disponible a los 18 años con protección para los padres.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div>© 2025 JP Asesoría y Finanzas · Sitio informativo · Estimaciones sujetas a historial IMSS.</div>
-      <div><a href="https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida." class="btn btn-outline" target="_blank" rel="noopener">WhatsApp</a></div>
-    </div>
-  </footer>
-
-  <script>
-    // Formulario "¿Eres candidato?"
-    function goAgenda(e){
-      e.preventDefault();
-      const q1 = document.getElementById('q1').value || "-";
-      const q2 = (document.getElementById('q2').value || "").trim() || "-";
-      const q3 = document.getElementById('q3').value || "-";
-      const q4 = (document.getElementById('q4').value || "").trim() || "-";
-
-      const baseWA = "https://wa.me/525554747547?text=";
-      const text = encodeURIComponent(
-        "Hola JP, quiero revisar si soy candidato a la asesoría.\n" +
-        "¿Inicié antes de 1997?: " + q1 + "\n" +
-        "Semanas aprox.: " + q2 + "\n" +
-        "Vigencia CD: " + q3 + "\n" +
-        "Mi WhatsApp: " + q4
-      );
-
-      window.open(baseWA + text, "_blank");
-    }
-
-    // ==== MODAL LEAD WHATS ====
-    function openLeadModal(){
-      const m = document.getElementById('leadModal');
-      if (m) m.style.display = 'flex';
-    }
-    function closeLeadModal(){
-      const m = document.getElementById('leadModal');
-      if (m) m.style.display = 'none';
-    }
-    document.addEventListener('DOMContentLoaded', function(){
-      const lead_q5 = document.getElementById('lead_q5');
-      const lead_other_wrap = document.getElementById('lead_other_wrap');
-      if (lead_q5 && lead_other_wrap){
-        lead_q5.addEventListener('change', function(){
-          if (this.value === 'Otro'){
-            lead_other_wrap.style.display = 'block';
-          } else {
-            lead_other_wrap.style.display = 'none';
-          }
-        });
-      }
-    });
-    function sendLeadWhats(e){
-      e.preventDefault();
-      const q1 = document.getElementById('lead_q1').value || "-";
-      const q2 = document.getElementById('lead_q2').value || "-";
-      const q3 = document.getElementById('lead_q3').value || "-";
-      const q4 = document.getElementById('lead_q4').value || "-";
-      const q5 = document.getElementById('lead_q5').value || "-";
-      const q6 = (document.getElementById('lead_q6').value || "").trim() || "-";
-      const other = (document.getElementById('lead_other')?.value || "").trim();
-
-      let detalle = q5;
-      if (q5 === "Otro" && other){
-        detalle += " — " + other;
-      }
-
-      const texto =
-        "\n\n" +
-        "• ¿Inicié antes del 1/07/1997?: " + q1 + "\n" +
-        "• ¿Actualmente cotizo ante el IMSS?: " + q2 + "\n" +
-        "• Semanas cotizadas (aprox.): " + q3 + "\n" +
-        "• CSC actualizada: " + q4 + "\n" +
-        "• Me interesa sobre todo: " + detalle + "\n" +
-        "• Mi WhatsApp: " + q6;
-
-      const url = "https://wa.me/525554747547?text=Hola%20JP,%20vengo%20de%20tu%20pagina%20de%20pension%20IMSS%20y%20quiero%20hacerte%20unas%20preguntas%20antes%20de%20agendar%20mi%20Revision%20Rapida." + encodeURIComponent(texto);
-      window.open(url, "_blank");
-      closeLeadModal();
-    }
-
-    // Click-to-play (sin autoplay) con audio habilitado al tocar
-    (function(){
-      const wrap = document.querySelector('.video-wrap16x9');
-      if(!wrap) return;
-      const v = wrap.querySelector('video');
-      const btn = wrap.querySelector('.video-play');
-
-      function playVideo(){
-        v.muted = false;                // habilita audio tras interacción del usuario
-        v.play().then(()=>{ wrap.classList.add('playing'); })
-                .catch(()=>{ /* ignorar errores de reproducción */ });
-      }
-      btn.addEventListener('click', playVideo);
-      v.addEventListener('click', ()=>{
-        if (v.paused) playVideo(); else v.pause();
-      });
-    })();
-
-    // Pausar cuando no esté visible
-    (function(){
-      const v = document.querySelector('.video-wrap16x9 video');
-      if(!v) return;
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(!e.isIntersecting) v.pause();
-        });
-      }, {threshold: 0.25});
-      io.observe(v);
-    })();
-  </script>
-
-  <!-- MODAL LEAD WHATS -->
-  <div id="leadModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:center;justify-content:center;padding:16px;">
-    <div style="max-width:480px;width:100%;background:#ffffff;border-radius:18px;padding:20px 20px 18px;border:1px solid #E5E7EB;box-shadow:0 18px 40px rgba(3,35,79,.28);position:relative;">
-      <button type="button" onclick="closeLeadModal()" style="position:absolute;top:10px;right:12px;border:none;background:transparent;font-size:20px;cursor:pointer;color:#6B7280;">×</button>
-      <h2 style="margin:4px 0 4px;font-size:20px;color:#03234F;">Antes de escribirte por WhatsApp…</h2>
-      <p style="margin:0 0 12px;font-size:14px;color:#4B5563;">Responde unas preguntas rápidas y te escribo con una orientación clara sobre tu caso.</p>
-
-      <form id="leadForm" onsubmit="sendLeadWhats(event)" style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#111827;">
-
-        <div>
-          <label style="font-weight:600;display:block;margin-bottom:4px;">¿Iniciaste cotización antes del 1/07/1997?</label>
-          <select id="lead_q1" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB;">
-            <option value="">Selecciona…</option>
-            <option>Sí</option>
-            <option>No</option>
-            <option>No sé</option>
-          </select>
-        </div>
-
-        <div>
-          <label style="font-weight:600;display:block;margin-bottom:4px;">¿Actualmente estás cotizando ante el IMSS?</label>
-          <select id="lead_q2" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB;">
-            <option value="">Selecciona…</option>
-            <option>Sí</option>
-            <option>No</option>
-            <option>No estoy seguro(a)</option>
-          </select>
-        </div>
-
-        <div>
-          <label style="font-weight:600;display:block;margin-bottom:4px;">¿Cuántas semanas cotizadas tienes aproximadamente?</label>
-          <select id="lead_q3" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB%;">
-            <option value="">Selecciona…</option>
-            <option>Menos de 500</option>
-            <option>500–900</option>
-            <option>900–1300</option>
-            <option>Más de 1300</option>
-            <option>No sé</option>
-          </select>
-        </div>
-
-        <div>
-          <label style="font-weight:600;display:block;margin-bottom:4px;">¿Cuentas con tu Constancia de Semanas Cotizadas actualizada?</label>
-          <select id="lead_q4" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB;">
-            <option value="">Selecciona…</option>
-            <option>Sí</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <div>
-          <label style="font-weight:600;display:block;margin-bottom:4px;">¿Qué es lo que más te interesaría conocer?</label>
-          <select id="lead_q5" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB;">
-            <option value="">Selecciona…</option>
-            <option>Saber si conservo mis derechos</option>
-            <option>Evaluar si me conviene Modalidad 40</option>
-            <option>Revisar cuánto podría recibir de pensión</option>
-            <option>Obtener estrategia completa y plan de acción</option>
-            <option>Otro</option>
-          </select>
-        </div>
-
-        <div id="lead_other_wrap" style="display:none;">
-          <label style="font-weight:600;display:block;margin-bottom:4px;">Especifica brevemente (opcional)</label>
-          <textarea id="lead_other" rows="2" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB;resize:vertical;" placeholder="Ej. Tengo varias cotizaciones, no sé cuál me conviene…"></textarea>
-        </div>
-
-        <div>
-          <label style="font-weight:600;display:block;margin-bottom:4px;">Tu WhatsApp (10 dígitos)</label>
-          <input id="lead_q6" type="text" placeholder="55XXXXXXXX" style="width:100%;padding:10px;border-radius:10px;border:1px solid #D1D5DB;">
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="margin-top:6px;align-self:flex-start;">
-          Enviar a JP por WhatsApp
-        </button>
-
-        <p style="margin:8px 0 4px;font-size:12px;color:#6B7280;">
-          Mientras te respondo, puedes revisar esta guía con los factores que influyen en tu pensión:
-        </p>
-        <a href="/FactoresPension.pdf" target="_blank" rel="noopener" style="font-size:13px;color:#03234F;text-decoration:underline;">
-          Descargar guía en PDF
-        </a>
-
-      </form>
+    <div class="alert alert-amber" style="margin-top:.75rem">
+      ⚠ Sin estrategia, esperar más años siempre tarda ~15 años en recuperar lo no cobrado — independientemente de cuánto tiempo se espere. El incremento mensual no compensa el tiempo perdido sin pensión.
     </div>
   </div>
 
+  <div style="margin-top:1.75rem">
+    <div class="section-title" style="font-size:1rem;border:none;padding:0;margin-bottom:.5rem">B — Impacto de M40 como estrategia puente antes del retiro (25 UMA)</div>
+    <p style="font-size:13px;color:var(--text-soft);margin-bottom:.75rem">La decisión real no es cuántos años esperar, sino cuántos meses de M40 conviene aportar antes de retirarse a los 60. El punto de referencia es retirarse sin estrategia.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th>Meses M40</th>
+            <th>Pensión neta/mes</th>
+            <th>Δ vs base</th>
+            <th>Inversión total</th>
+            <th>Payback (meses)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>E1 — Base sin M40</strong></td><td>0</td><td>$41,536</td><td>—</td><td>$0</td><td>—</td></tr>
+          <tr><td><strong>E2 — Puente corta</strong></td><td>6</td><td>$44,170</td><td>+$2,634</td><td>$77,234</td><td>~29 meses</td></tr>
+          <tr><td><strong>E2b</strong></td><td>8</td><td>$45,082</td><td>+$3,546</td><td>$102,978</td><td>~29 meses</td></tr>
+          <tr class="row-highlight"><td><strong>E3 — Puente intermedia</strong></td><td>10</td><td>$45,893</td><td>+$4,357</td><td>$128,723</td><td>~30 meses</td></tr>
+          <tr class="row-highlight"><td><strong>E3b</strong></td><td>12</td><td>$46,805</td><td>+$5,269</td><td>$154,467</td><td>~29 meses</td></tr>
+          <tr><td><strong>E4 — Escenario máximo</strong></td><td>14</td><td>$47,716</td><td>+$6,181</td><td>$182,156</td><td>~29 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-blue" style="margin-top:.75rem">
+      ℹ El payback se mantiene estable en ~29 meses para todos los plazos de 6 a 14 meses — lo que significa que cada mes adicional de M40 agrega pensión de forma proporcional sin empeorar la recuperación. El incremento por mes adicional es de aproximadamente $930 de pensión neta. La decisión entre plazos depende principalmente de la liquidez disponible y el tiempo que se esté dispuesto a esperar antes del retiro.
+    </div>
+  </div>
+</div>
+
+<!-- 4. ESCENARIOS M40 INTERACTIVOS -->
+<div class="section">
+  <div class="section-title"><span class="section-num">4</span> Modalidad 40 — simulador de estrategia puente</div>
+  <p style="color:var(--text-mid);font-size:14px;line-height:1.8;margin-bottom:1.25rem">
+    La Modalidad 40 se plantea aquí como una <strong>estrategia puente de corto plazo</strong>: iniciar lo antes posible y extenderla solo el tiempo necesario para mejorar el promedio salarial antes del retiro. No se parte de un plazo fijo — se explora cuántos meses realmente justifican la inversión según el nivel de UMA y el financiamiento disponible.
+  </p>
+  <div class="alert alert-amber" style="margin-bottom:1.25rem">
+    ⚠ <strong>Nota de prudencia operativa:</strong> Antes de iniciar aportaciones voluntarias, se recomienda validar directamente en ventanilla IMSS la viabilidad operativa del alta en Modalidad 40, la fecha exacta de reconocimiento de edad y el costo vigente aplicable al momento del trámite. Los costos aquí presentados son estimaciones de referencia sujetas a confirmación oficial.
+  </div>
+
+  <div class="tabs-row">
+    <button class="tab-btn active" onclick="showTab(this,'propio')">Con dinero propio</button>
+    <button class="tab-btn" onclick="showTab(this,'prestamo')">Con préstamo (CAT)</button>
+    <button class="tab-btn" onclick="showTab(this,'tabla')">Tabla de sensibilidad</button>
+  </div>
+
+  <!-- Tab propio -->
+  <div class="tab-panel active" id="tab-propio">
+    <div class="controls">
+      <div class="control-row">
+        <span class="control-label">Nivel UMA en M40</span>
+        <input type="range" min="15" max="25" step="1" value="25" id="sl-uma" oninput="calcM40()">
+        <span class="control-val" id="sv-uma">25 UMA · $2,932.75/día</span>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Meses de aportación</span>
+        <input type="range" min="0" max="14" step="1" value="6" id="sl-meses" oninput="calcM40()">
+        <span class="control-val" id="sv-meses">6 meses</span>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Edad de retiro</span>
+        <input type="range" min="60" max="63" step="1" value="60" id="sl-edad" oninput="calcM40()">
+        <span class="control-val" id="sv-edad">60 años (75%)</span>
+      </div>
+    </div>
+    <div id="resultado-propio"></div>
+  </div>
+
+  <!-- Tab préstamo -->
+  <div class="tab-panel" id="tab-prestamo">
+    <div class="controls">
+      <div class="control-row">
+        <span class="control-label">Nivel UMA en M40</span>
+        <input type="range" min="15" max="25" step="1" value="25" id="sl-uma2" oninput="calcPrestamo()">
+        <span class="control-val" id="sv-uma2">25 UMA · $2,932.75/día</span>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Meses de aportación</span>
+        <input type="range" min="1" max="14" step="1" value="6" id="sl-meses2" oninput="calcPrestamo()">
+        <span class="control-val" id="sv-meses2">6 meses</span>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Edad de retiro</span>
+        <input type="range" min="60" max="63" step="1" value="60" id="sl-edad2" oninput="calcPrestamo()">
+        <span class="control-val" id="sv-edad2">60 años (75%)</span>
+      </div>
+      <div class="control-row">
+        <span class="control-label">CAT del préstamo</span>
+        <input type="range" min="10" max="60" step="2" value="24" id="sl-cat" oninput="calcPrestamo()">
+        <span class="control-val" id="sv-cat">24% CAT anual</span>
+      </div>
+    </div>
+    <div id="resultado-prestamo"></div>
+  </div>
+
+  <!-- Tab tabla sensibilidad -->
+  <div class="tab-panel" id="tab-tabla">
+    <p style="font-size:13px;color:var(--text-soft);margin-bottom:.9rem">Sensibilidad por meses de aportación — 25 UMA, retiro a los 60 años. Los meses marcados son los puntos de decisión clave para el caso.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Meses M40</th><th>Inversión</th><th>Δ pensión neta</th>
+            <th>Pensión neta total</th><th>ROI anual</th><th>Payback</th><th>Semáforo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>0 — Sin M40 (base)</strong></td><td>$0</td><td>—</td><td>$41,536</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr class="row-highlight"><td><strong>6 meses</strong></td><td>$77,234</td><td>+$2,634</td><td>$44,170</td><td>41%</td><td>29 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+          <tr class="row-highlight"><td><strong>8 meses</strong></td><td>$102,978</td><td>+$3,546</td><td>$45,082</td><td>41%</td><td>29 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+          <tr class="row-highlight"><td><strong>10 meses</strong></td><td>$128,723</td><td>+$4,357</td><td>$45,893</td><td>41%</td><td>30 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+          <tr class="row-highlight"><td><strong>12 meses</strong></td><td>$154,467</td><td>+$5,269</td><td>$46,805</td><td>41%</td><td>29 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+          <tr><td><strong>14 meses (máximo)</strong></td><td>$182,156</td><td>+$6,181</td><td>$47,716</td><td>41%</td><td>29 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-blue" style="margin-top:.75rem">
+      ℹ El ROI se mantiene constante en 41% para todos los plazos — la eficiencia de la estrategia no cambia con el tiempo. El payback es estable en ~29 meses en todos los escenarios. En promedio, cada par de meses adicionales de M40 a 25 UMA agrega cerca de $900–$1,000 de pensión neta mensual de forma permanente. No hay un punto de quiebre entre plazos: la decisión es principalmente de capacidad de inversión y tiempo de espera.
+    </div>
+    <div class="alert alert-blue" style="margin-top:.75rem;font-size:12px">
+      <strong>¿Cómo se calcula el ROI anual?</strong><br>
+      ROI anual = (Δ pensión neta × 12) ÷ Inversión total × 100<br><br>
+      Ejemplo con 6 meses: (2,634 × 12) ÷ 77,234 × 100 = <strong>41%</strong><br><br>
+      Interpretación para el cliente: <em>"Por cada peso invertido en M40, se recuperan 41 centavos de pensión adicional cada año — de forma permanente y de por vida."</em>
+    </div>
+    <div style="margin-top:1.25rem">
+      <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:.6rem">Sensibilidad con préstamo — 25 UMA / 6 meses vs 14 meses, distintos CAT</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Meses</th><th>CAT</th><th>Inversión M40</th><th>Interés préstamo</th><th>Costo total</th><th>ROI neto</th><th>Payback real</th><th>Semáforo</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-highlight"><td>6</td><td>18%</td><td>$77,234</td><td>$6,951</td><td>$84,185</td><td>38%</td><td>32 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+            <tr class="row-highlight"><td>6</td><td>24%</td><td>$77,234</td><td>$9,268</td><td>$86,502</td><td>37%</td><td>33 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+            <tr class="row-highlight"><td>6</td><td>36%</td><td>$77,234</td><td>$13,902</td><td>$91,136</td><td>35%</td><td>35 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+            <tr><td>14</td><td>18%</td><td>$182,156</td><td>$38,253</td><td>$220,408</td><td>34%</td><td>36 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+            <tr><td>14</td><td>24%</td><td>$182,156</td><td>$51,004</td><td>$233,159</td><td>32%</td><td>38 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+            <tr><td>14</td><td>36%</td><td>$182,156</td><td>$76,505</td><td>$258,661</td><td>29%</td><td>42 meses</td><td><span class="sem sem-green">🟢 Verde</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-green" style="margin-top:.75rem">
+        ✅ Con 6 meses financiados al 36% CAT, el ROI neto es 35% y el payback 35 meses — sigue siendo verde. La estrategia puente corta financiada tiene mejor ROI que la estrategia larga financiada, aunque menor incremento absoluto de pensión. En todos los escenarios modelados la inversión se recupera antes de los 4 años de pensión cobrada.
+      </div>
+      <div class="alert alert-green" style="margin-top:.75rem;font-size:12px">
+        <strong>¿Cómo se calcula el ROI neto (con préstamo)?</strong><br>
+        ROI neto = (Δ pensión neta × 12) ÷ (Inversión M40 + Intereses del préstamo) × 100<br><br>
+        Ejemplo con 6 meses al CAT 24%: (2,634 × 12) ÷ (77,234 + 9,268) × 100 = (2,634 × 12) ÷ 86,502 × 100 = <strong>37%</strong><br><br>
+        Lo que reduce el ROI del 41% al 37% son los $9,268 de intereses que se suman al denominador.<br><br>
+        Interpretación para el cliente: <em>"Si pides prestado al 24%, ese rendimiento baja del 41% al 37% porque parte de lo que ganas se va en pagar intereses — pero sigue siendo una inversión con muy buen retorno."</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. CONCLUSIÓN -->
+<div class="section">
+  <div class="section-title"><span class="section-num">5</span> Conclusión y plan de acción</div>
+  <div class="conclusion">
+    <div class="conclusion-title">Recomendación ejecutiva</div>
+    <p>
+      Hoy se cuenta con una posición privilegiada: hay más semanas de las necesarias, los derechos se conservan plenamente y el retiro está a pocos meses de distancia. La información disponible muestra una posición muy favorable para pensionarse bajo Ley 73; sin embargo, el monto final siempre deberá ser confirmado por el IMSS al momento del trámite. La pregunta central es <strong>si conviene aportar unos meses en Modalidad 40 antes de retirarse</strong> para mejorar ese monto de forma permanente.
+    </p>
+    <p>
+      <strong>Enfoque recomendado:</strong> Tratar M40 como una estrategia puente de corto plazo — iniciarla lo antes posible y extenderla solo el tiempo que sea viable según la liquidez disponible. El análisis muestra que con 25 UMA, en promedio cada par de meses adicionales de aportación agrega cerca de $900–$1,000 de pensión neta mensual. Incluso 6 meses de M40 producen un incremento real y se recuperan en menos de 3 años de pensión cobrada.
+    </p>
+    <p>
+      <strong>Sobre el plazo:</strong> De 6 a 14 meses el ROI es constante (41%) y el payback prácticamente no varía (~29 meses). No hay un punto de quiebre que haga más conveniente un plazo sobre otro — la diferencia está en el monto absoluto de mejora. El escenario de 14 meses queda como comparación máxima: mayor inversión, mayor pensión, misma eficiencia.
+    </p>
+    <p>
+      <strong>En caso de financiamiento:</strong> La estrategia corta (6 meses) financiada con préstamo mantiene ROI neto de 35–38% incluso con tasas elevadas. El costo real del crédito debe confirmarse antes de tomar la decisión. Se recomienda validar condiciones directamente en ventanilla IMSS antes de iniciar cualquier aportación.
+    </p>
+    <p>
+      <strong>En términos prácticos:</strong> Si se busca pensionarse lo antes posible, un rango de 6 a 10 meses representa el equilibrio más natural entre inversión, mejora mensual y tiempo de espera. Si existe mayor liquidez y disposición a extender el retiro, los escenarios de 12 o 14 meses pueden evaluarse como referencia de comparación, con la misma eficiencia financiera pero un incremento de pensión más alto.
+    </p>
+  </div>
+</div>
+
+<!-- GRÁFICAS -->
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-size:12px;font-weight:500;flex-shrink:0">6</span> Visualización de escenarios</div>
+  <p style="color:var(--text-mid);font-size:14px;margin-bottom:1.25rem">Las siguientes gráficas muestran de forma directa las diferencias entre los esquemas analizados.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow)">
+      <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:.75rem;text-align:center">Pensión neta estimada por edad de retiro (sin M40)</div>
+      <canvas id="chart-pension-edad" height="200"></canvas>
+    </div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow)">
+      <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:.75rem;text-align:center">Pensión neta según meses de M40 a 25 UMA</div>
+      <canvas id="chart-pension-m40" height="200"></canvas>
+    </div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow)">
+    <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:.75rem;text-align:center">Recuperación post-aporte — % de inversión recuperada por meses de pensión cobrada</div>
+    <canvas id="chart-recuperacion" height="160"></canvas>
+    <p style="font-size:11px;color:var(--text-soft);margin-top:.5rem;text-align:center">Muestra cuántos meses de pensión se necesitan para recuperar la inversión total en M40. La línea llega al 100% en el mes de payback.</p>
+  </div>
+</div>
+
+<!-- FACTORES -->
+<div class="section">
+  <div class="section-title"><span class="section-num" style="background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-size:12px;font-weight:500;flex-shrink:0">7</span> Factores que influyen en el monto de la pensión</div>
+  <p style="color:var(--text-mid);font-size:13px;margin-bottom:1rem">Guía rápida de referencia para entender qué variables impactan el monto final determinado por el IMSS.</p>
+  <div style="overflow-x:auto">
+    <table style="font-size:12.5px">
+      <thead>
+        <tr><th style="width:22%">Concepto</th><th style="width:45%">Cómo influye</th><th style="width:33%">Impacto estimado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Semanas cotizadas</strong></td><td>A mayor semanas, mejor % Ley 73. Mínimo 500, beneficio alto a partir de 1,250–1,500</td><td style="color:var(--green)">↑ +5% a +15%</td></tr>
+        <tr><td><strong>Promedio salarial últimos 5 años</strong></td><td>Base del cálculo; subirlo (p. ej. con M40) eleva la pensión directamente</td><td style="color:var(--green)">↑ +10% a +60%</td></tr>
+        <tr><td><strong>Edad de retiro</strong></td><td>De 60 a 65 años sube de 75% a 100%; además suma semanas adicionales</td><td style="color:var(--green)">↑ +5% a +10%</td></tr>
+        <tr><td><strong>Modalidad 40</strong></td><td>Puede ayudar a conservar derechos o mantener un promedio alto si baja el SBC o se pierde el empleo</td><td style="color:var(--text-soft)">⚖ Estratégico / preventivo</td></tr>
+        <tr><td><strong>Estado civil / dependientes</strong></td><td>No sube la pensión del titular, pero sí el ingreso familiar (viudez/orfandad)</td><td style="color:var(--text-soft)">⚖ +$2,000 a $3,500</td></tr>
+        <tr><td><strong>INFONAVIT activo</strong></td><td>Puede descontar 10–20% de la pensión hasta liquidar el crédito</td><td style="color:#991B1B">↓ –10% a –20%</td></tr>
+        <tr><td><strong>Saldo AFORE</strong></td><td>Puede financiar M40 o complementar el ingreso en retiro</td><td style="color:var(--text-soft)">⚖ Variable</td></tr>
+        <tr><td><strong>Periodos sin cotizar</strong></td><td>Bajan semanas y promedio salarial de las últimas 250 semanas</td><td style="color:#991B1B">↓ –5% a –15%</td></tr>
+        <tr><td><strong>Año de alta en IMSS</strong></td><td>Define el régimen aplicable (Ley 73 vs Ley 97). Es determinante</td><td style="color:var(--text-soft)">⚖ Determinante</td></tr>
+        <tr><td><strong>Incrementos UMA</strong></td><td>Sube la pensión futura (está indexada a UMA) y también las cuotas de M40</td><td style="color:var(--green)">↑ +4% a +6% anual</td></tr>
+        <tr><td><strong>Topes IMSS</strong></td><td>Máximo de 25 UMA diarias; cotizar arriba de eso no incrementa la pensión</td><td style="color:var(--text-soft)">⚖ Sin extra</td></tr>
+        <tr><td><strong>Subsidios / incapacidades</strong></td><td>En los últimos 5 años pueden reducir el promedio salarial base</td><td style="color:#991B1B">↓ –2% a –8%</td></tr>
+        <tr><td><strong>ISR sobre pensión</strong></td><td>Aplica sobre el excedente de 15 UMA mensuales (~$53,493). Reduce la pensión neta</td><td style="color:#991B1B">↓ –5% a –20%</td></tr>
+        <tr><td><strong>Calidad del trámite</strong></td><td>Errores en el promedio o semanas reconocidas pueden reducir el monto final</td><td style="color:#991B1B">↓ –5% a –15%</td></tr>
+        <tr><td><strong>Fecha de alta / baja M40</strong></td><td>Si no se registra en tiempo, se pierde la continuidad y el derecho al alta</td><td style="color:#991B1B">↓ –10% a –25%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--text-soft);margin-top:.6rem">Los impactos son estimados de referencia. El IMSS es la única autoridad que determina el monto final.</p>
+</div>
+
+<!-- SUPUESTOS -->
+<div class="section">
+  <div class="section-title" style="font-size:1rem">Supuestos técnicos del modelo</div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;font-size:13px;color:var(--text-mid);line-height:1.8">
+    UMA 2026 diaria: $117.31 (INEGI oficial) &nbsp;·&nbsp;
+    Días/mes: 30.4 &nbsp;·&nbsp;
+    Crecimiento UMA estimado: 4% anual &nbsp;·&nbsp;
+    ISR: tasa efectiva 20% sobre excedente de 15 UMA mensuales (~$53,493) &nbsp;·&nbsp;
+    Tasas M40: tabla progresiva 2024–2030 &nbsp;·&nbsp;
+    Resultados en pesos de hoy salvo indicación contraria &nbsp;·&nbsp;
+    No se consideran créditos Infonavit activos &nbsp;·&nbsp;
+    El IMSS es la única autoridad que determina el monto final de pensión
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  <strong>JP Finanzas</strong> · Asesor en Retiro y Finanzas ·
+  <a href="mailto:contacto@jpfinanzas.com">contacto@jpfinanzas.com</a> ·
+  +52 55 5474 7547<br>
+  <span style="color:#bbb">Este documento es confidencial y fue generado exclusivamente para Gabriela Muñoz Abarca.</span>
+</div>
+
+<script>
+const UMA=117.31, DIAS=30.4, EXENTO=15*UMA*DIAS;
+const LEY73={60:0.75,61:0.80,62:0.85,63:0.90,64:0.95,65:1.00};
+const TASAS={2024:0.12256,2025:0.13347,2026:0.14438,2027:0.15528,2028:0.16619,2029:0.17709};
+const SBC_PROM=1821.74;
+
+function fmt(n){return '$'+Math.round(n).toLocaleString('es-MX')}
+function fmtPct(n){return n.toFixed(0)+'%'}
+
+function pensionNeta(sbc,pct){
+  const b=sbc*DIAS*pct, isr=Math.max(0,b-EXENTO)*0.20;
+  return {bruta:b, isr, neta:b-isr};
+}
+
+function costM40(sbc_m40_d, meses){
+  let c=0;
+  for(let i=0;i<meses;i++){
+    const yr=2026+Math.floor(i/12);
+    const t=TASAS[yr]||0.17709;
+    c+=sbc_m40_d*DIAS*t;
+  }
+  return c;
+}
+
+function semClass(pb){return pb<=60?'sem-green':pb<=96?'sem-amber':'sem-red'}
+function semLabel(pb){return pb<=60?'🟢 Verde (excelente)':pb<=96?'🟡 Amarillo (aceptable)':'🔴 Rojo (revisar)'}
+
+function calcM40(){
+  const uma=+document.getElementById('sl-uma').value;
+  const meses=+document.getElementById('sl-meses').value;
+  const edad=+document.getElementById('sl-edad').value;
+  const pct=LEY73[edad]||0.80;
+
+  document.getElementById('sv-uma').textContent=uma+' UMA · '+fmt(uma*UMA)+'/día';
+  document.getElementById('sv-meses').textContent=meses+' meses';
+  document.getElementById('sv-edad').textContent=edad+' años ('+Math.round(pct*100)+'%)';
+
+  const sbc_m40=Math.min(25,uma)*UMA;
+  const w=Math.min(Math.round(meses*4.33),250);
+  const sbc_nuevo=Math.min(((SBC_PROM*(250-w))+(sbc_m40*w))/250,25*UMA);
+
+  const base=pensionNeta(SBC_PROM,pct);
+  const nuevo=pensionNeta(sbc_nuevo,pct);
+  const delta=nuevo.neta-base.neta;
+  const costo=costM40(sbc_m40,meses);
+  const roi=delta>0?(delta*12/costo*100):0;
+  const pb=delta>0?(costo/delta):999;
+  const sc=semClass(pb);
+  const sl=semLabel(pb);
+
+  document.getElementById('resultado-propio').innerHTML=`
+  <div class="result-grid">
+    <div class="result-card"><div class="result-label">SBC M40 diario</div><div class="result-val">${fmt(sbc_m40)}</div><div class="result-sub">${uma} UMA elegidas</div></div>
+    <div class="result-card"><div class="result-label">Nuevo promedio 250 sem</div><div class="result-val">${fmt(sbc_nuevo)}/día</div><div class="result-sub">vs $1,821.74 actual</div></div>
+    <div class="result-card"><div class="result-label">Inversión total M40</div><div class="result-val">${fmt(costo)}</div><div class="result-sub">${meses} cuotas mensuales</div></div>
+    <div class="result-card"><div class="result-label">Δ pensión neta/mes</div><div class="result-val" style="color:var(--green)">+${fmt(delta)}</div><div class="result-sub">Pensión nueva: ${fmt(nuevo.neta)}</div></div>
+    <div class="result-card"><div class="result-label">ROI anual</div><div class="result-val">${fmtPct(roi)}</div><div class="result-sub">Sobre inversión total</div></div>
+    <div class="result-card"><div class="result-label">Payback</div><div class="result-val">${Math.round(pb)} meses</div><div class="result-sub"><span class="sem ${sc}">${sl}</span></div></div>
+  </div>`;
+}
+
+function calcPrestamo(){
+  const uma=+document.getElementById('sl-uma2').value;
+  const meses=+document.getElementById('sl-meses2').value;
+  const edad=+document.getElementById('sl-edad2').value;
+  const cat=+document.getElementById('sl-cat').value/100;
+  const pct=LEY73[edad]||0.75;
+
+  document.getElementById('sv-uma2').textContent=uma+' UMA · '+fmt(uma*UMA)+'/día';
+  document.getElementById('sv-meses2').textContent=meses+' meses';
+  document.getElementById('sv-edad2').textContent=edad+' años ('+Math.round(pct*100)+'%)';
+  document.getElementById('sv-cat').textContent=(cat*100).toFixed(0)+'% CAT anual';
+
+  const sbc_m40=Math.min(25,uma)*UMA;
+  const w=Math.min(Math.round(meses*4.33),250);
+  const sbc_nuevo=Math.min(((SBC_PROM*(250-w))+(sbc_m40*w))/250,25*UMA);
+
+  const base=pensionNeta(SBC_PROM,pct);
+  const nuevo=pensionNeta(sbc_nuevo,pct);
+  const delta=nuevo.neta-base.neta;
+  const costo=costM40(sbc_m40,meses);
+  const interes=costo*(cat/12)*meses;
+  const costoTotal=costo+interes;
+  const roi=delta>0?(delta*12/costoTotal*100):0;
+  const pb=delta>0?(costoTotal/delta):999;
+  const sc=semClass(pb);
+  const sl=semLabel(pb);
+
+  document.getElementById('resultado-prestamo').innerHTML=`
+  <div class="result-grid">
+    <div class="result-card"><div class="result-label">Cuotas M40 (sin interés)</div><div class="result-val">${fmt(costo)}</div><div class="result-sub">${meses} meses</div></div>
+    <div class="result-card"><div class="result-label">Interés del préstamo</div><div class="result-val" style="color:var(--amber)">${fmt(interes)}</div><div class="result-sub">CAT ${(cat*100).toFixed(0)}%</div></div>
+    <div class="result-card"><div class="result-label">Costo total real</div><div class="result-val">${fmt(costoTotal)}</div><div class="result-sub">M40 + intereses</div></div>
+    <div class="result-card"><div class="result-label">Δ pensión neta/mes</div><div class="result-val" style="color:var(--green)">+${fmt(delta)}</div><div class="result-sub">Pensión: ${fmt(nuevo.neta)}</div></div>
+    <div class="result-card"><div class="result-label">ROI neto financiado</div><div class="result-val">${fmtPct(roi)}</div><div class="result-sub">Incluye costo del crédito</div></div>
+    <div class="result-card"><div class="result-label">Payback real</div><div class="result-val">${Math.round(pb)} meses</div><div class="result-sub"><span class="sem ${sc}">${sl}</span></div></div>
+  </div>
+  <div class="alert ${roi>=25?'alert-green':'alert-amber'}" style="margin-top:.75rem">
+    ${roi>=25?'✅':'⚠'} Con <strong>${uma} UMA / ${meses} meses / ${edad} años / CAT ${(cat*100).toFixed(0)}%</strong>: ROI neto <strong>${fmtPct(roi)}</strong> — Payback <strong>${Math.round(pb)} meses</strong>. ${roi>=25?'Estrategia financieramente sólida incluso con financiamiento externo.':'Considera aumentar el nivel de UMA o buscar una tasa de crédito más baja.'}
+  </div>`;
+}
+
+function showTab(btn, id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+  if(id==='propio') calcM40();
+  if(id==='prestamo') calcPrestamo();
+}
+
+// Inicializar
+calcM40();
+calcPrestamo();
+
+// ── GRÁFICAS ──
+const NAVY='#0D1B2A', GOLD='#C9A84C', NAVY_MID='#1B2E44';
+const BLUE_C='#1E3A5F', GREEN_C='#2D6A4F', AMBER_C='#C9A84C';
+const PALETTE = ['#0D1B2A','#1E3A5F','#C9A84C','#2D6A4F','#E8C97A','#4A4A4A'];
+
+Chart.defaults.font.family = "'DM Sans', sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#4A4A4A';
+
+// 1. Pensión por edad sin M40
+(function(){
+  const edades = ['60 años','61 años','62 años','63 años','64 años','65 años'];
+  const pcts = [0.75,0.80,0.85,0.90,0.95,1.00];
+  const vals = pcts.map(p => {
+    const b = SBC_PROM * DIAS * p;
+    const isr = Math.max(0, b - EXENTO) * 0.20;
+    return Math.round(b - isr);
+  });
+  new Chart(document.getElementById('chart-pension-edad'), {
+    type: 'bar',
+    data: {
+      labels: edades,
+      datasets: [{
+        label: 'Pensión neta estimada ($)',
+        data: vals,
+        backgroundColor: pcts.map(p => p === 0.75 ? GOLD : NAVY),
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: { label: ctx => ' $' + ctx.raw.toLocaleString('es-MX') }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          min: 35000,
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+})();
+
+// 2. Pensión por meses de M40 (25 UMA, retiro 60)
+(function(){
+  const mesesArr = [0,6,8,10,12,14];
+  const labels = mesesArr.map(m => m === 0 ? 'Sin M40' : m + ' meses');
+  const vals = mesesArr.map(m => {
+    if(m === 0) return Math.round(pensionNeta(SBC_PROM, 0.75).neta);
+    const sbc_m40 = 25 * UMA;
+    const w = Math.min(Math.round(m * 4.33), 250);
+    const sbc_nuevo = Math.min(((SBC_PROM*(250-w))+(sbc_m40*w))/250, 25*UMA);
+    return Math.round(pensionNeta(sbc_nuevo, 0.75).neta);
+  });
+  new Chart(document.getElementById('chart-pension-m40'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Pensión neta ($)',
+        data: vals,
+        backgroundColor: vals.map((v,i) => i===0 ? '#C8C8C8' : NAVY_MID),
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: { label: ctx => ' $' + ctx.raw.toLocaleString('es-MX') }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          min: 38000,
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+})();
+
+// 3. Recuperación post-aporte
+(function(){
+  const escenarios = [
+    { label: '25 UMA / 6 meses',  uma: 25, meses: 6,  color: NAVY },
+    { label: '25 UMA / 14 meses', uma: 25, meses: 14, color: GOLD },
+    { label: '20 UMA / 6 meses',  uma: 20, meses: 6,  color: BLUE_C },
+    { label: '20 UMA / 14 meses', uma: 20, meses: 14, color: GREEN_C },
+  ];
+
+  function getPaybackData(uma, meses) {
+    const sbc_m40 = Math.min(25, uma) * UMA;
+    const w = Math.min(Math.round(meses * 4.33), 250);
+    const sbc_nuevo = Math.min(((SBC_PROM*(250-w))+(sbc_m40*w))/250, 25*UMA);
+    const base = pensionNeta(SBC_PROM, 0.75).neta;
+    const nuevo = pensionNeta(sbc_nuevo, 0.75).neta;
+    const delta = nuevo - base;
+    let costo = 0;
+    for(let i=0;i<meses;i++){
+      const yr=2026+Math.floor(i/12);
+      const t=TASAS[yr]||0.17709;
+      costo+=sbc_m40*DIAS*t;
+    }
+    const payback = delta > 0 ? costo / delta : 999;
+    return { delta, costo, payback };
+  }
+
+  const maxMeses = 50;
+  const labels = Array.from({length: maxMeses+1}, (_,i) => i);
+
+  const datasets = escenarios.map(e => {
+    const {delta, costo} = getPaybackData(e.uma, e.meses);
+    const data = labels.map(m => {
+      const recuperado = (delta * m / costo) * 100;
+      return Math.min(100, Math.round(recuperado * 10) / 10);
+    });
+    return {
+      label: e.label,
+      data,
+      borderColor: e.color,
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      pointRadius: 0,
+      tension: 0.1,
+    };
+  });
+
+  new Chart(document.getElementById('chart-recuperacion'), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { boxWidth: 14, padding: 12 }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}%`
+          }
+        }
+      },
+      scales: {
+        y: {
+          min: 0, max: 105,
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { callback: v => v + '%' }
+        },
+        x: {
+          title: { display: true, text: 'Meses desde inicio de pensión' },
+          grid: { color: 'rgba(0,0,0,0.04)' },
+          ticks: { maxTicksLimit: 11 }
+        }
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>
